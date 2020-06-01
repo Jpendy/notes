@@ -2,6 +2,31 @@ const { skipTwo, isFlag, getFlagValue, isValidFlag, parse, valid } = require('./
 
 const minimist = require('minimist')
 
+describe('parses input', () => {
+  it('parses command line arguments', () => {
+    const arr = ['node', 'index.js', '--add', 'hello this is now added'];
+    
+    const result = parse(arr, 2)
+    expect(result).toEqual({
+      type: 'add',
+      payload: 'hello this is now added'
+    });
+  });
+
+  it('can validate command line arguments', () => {
+    const action = {
+      type: 'add',
+      payload: 'hello this is now added'
+    }
+
+    const isValid = valid(action)
+
+    expect(isValid).toBeTruthy();
+  })
+});
+
+
+
 // describe('skips items in an array', () => {
 //     it('takes an array and a number, and skips all items before that number', () => {
 //       const arr = [1, 2, 3, 4];
@@ -40,28 +65,6 @@ const minimist = require('minimist')
 //     });
 //   });
 
-  describe('parses input', () => {
-    it('parses command line arguments', () => {
-      const arr = ['node', 'index.js', '--add', 'hello this is now added'];
-      
-      const result = parse(arr, 2)
-      expect(result).toEqual({
-        type: 'add',
-        payload: 'hello this is now added'
-      });
-    });
-
-    it('can validate command line arguments', () => {
-      const action = {
-        type: 'add',
-        payload: 'hello this is now added'
-      }
-
-      const isValid = valid(action)
-
-      expect(isValid).toBeTruthy();
-    })
-  });
-
+  
     
 
