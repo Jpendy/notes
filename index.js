@@ -1,4 +1,9 @@
 const minimist = require('minimist')
-const { parse } = require('./lib/input')
+const { parse, valid } = require('./lib/input')
+const { execute } = require('./lib/notes')
+
+
+
+
 
 console.log(parse(process.argv))
