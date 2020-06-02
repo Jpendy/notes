@@ -1,15 +1,10 @@
 const minimist = require('minimist')
-const { parse, valid } = require('./lib/input')
-const { execute } = require('./lib/notes')
+const { Notes } = require('./lib/Notes')
+const Input = require('./lib/Input')
 
 
+const input = new Input(minimist(process.argv));
 
+const notes = Notes.execute(input);
 
-
-console.log(parse(process.argv))
-
-const action = parse(process.argv);
-const isValid = valid(action);
-
-if(isValid) execute(action);
-else console.log('bad command')
+console.log(notes)
