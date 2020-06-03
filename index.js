@@ -28,7 +28,6 @@ app.get('/notes', (req, res) => {
     .then(note => res.send(note));
 });
 
-
-app.listen(3000, () => {
-  console.log('Started on 3000');
-});
+// app.listen(3000, () => {
+//   console.log('Started on 3000');
+// });
