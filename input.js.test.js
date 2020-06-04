@@ -12,7 +12,7 @@ describe('parses input', () => {
   });
   
   it('validates correct input', () => {
-    const arr = ['node', 'index.js', '--add', 'hello this is now added'];
+    const arr = ['node', 'index.js', '--add', 'note'];
     const isValid = Input.valid(arr);
     expect(isValid).toBeTruthy();
   });
