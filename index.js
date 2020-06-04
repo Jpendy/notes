@@ -3,4 +3,4 @@ const Input = require('./lib/Input')
 
 
 const input = new Input(process.argv);
-Input.valid && Notes.execute(input);
+Input.valid(input) && Notes.execute(input);
